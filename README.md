@@ -51,5 +51,5 @@ We welcome contributions to MyProject. Please follow these steps to contribute:
 6. Open a pull request.
 
 ## 1.5. License
-
+  
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
