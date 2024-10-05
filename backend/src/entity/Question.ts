@@ -21,6 +21,8 @@ export class Question {
   })
   correctAnswer: number;
 
-  @ManyToOne(() => Quiz, (quiz) => quiz.questions)
+  @ManyToOne(() => Quiz, (quiz) => quiz.questions, {
+    onDelete: "CASCADE",
+  })
   quiz: Quiz;
 }

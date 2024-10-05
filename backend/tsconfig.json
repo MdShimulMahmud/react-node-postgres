@@ -11,8 +11,7 @@
     "strictPropertyInitialization": false,
     "strictNullChecks": true,
     "noImplicitAny": true,
-"resolveJsonModule": true,
-
+    "resolveJsonModule": true,
     "skipLibCheck": true
     
   }

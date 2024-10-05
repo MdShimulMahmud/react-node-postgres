@@ -6,17 +6,23 @@ import express from "express";
 import { AppDataSource } from "./data-source";
 import authRoutes from "./routes/auth";
 import quizRoutes from "./routes/quiz";
-
+import scoreRoutes from "./routes/score";
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use("/api", quizRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api", scoreRoutes);
 
 AppDataSource.initialize()
   .then(() => {

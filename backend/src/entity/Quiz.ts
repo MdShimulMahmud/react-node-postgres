@@ -1,6 +1,14 @@
 // src/entity/Quiz.ts
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Question } from "./Question";
+import { Score } from "./Score";
+import { User } from "./User";
 
 @Entity()
 export class Quiz {
@@ -21,4 +29,12 @@ export class Quiz {
 
   @OneToMany(() => Question, (question) => question.quiz)
   questions: Question[];
+
+  @ManyToOne(() => User, (user) => user.quizzes)
+  creator: User;
+
+  @OneToMany(() => Score, (score) => score.quiz, {
+    onDelete: "CASCADE",
+  })
+  scores: Score[];
 }
